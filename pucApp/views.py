@@ -6,6 +6,9 @@ from .models import PUCCertificate
 
 # Create your views here.
 
+def home(request):
+    return render(request,'pucApp/home.html')
+
 def uploadPUC(request):
     form=PUCCertificateForm()
     if request.method=='POST':
