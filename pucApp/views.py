@@ -3,12 +3,15 @@ from django.forms.models import model_to_dict
 from django.views.generic import View
 from .forms import PUCCertificateForm,DownloadPUCForm
 from .models import PUCCertificate
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
 def home(request):
     return render(request,'pucApp/home.html')
 
+@login_required
 def uploadPUC(request):
     form=PUCCertificateForm()
     if request.method=='POST':

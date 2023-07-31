@@ -1,5 +1,5 @@
 {% extends 'pucApp/base.html' %}
-
+{%block downloadactive %} active {%endblock downloadactive %}
 {% block body %}
 
 <form  method="post" >
@@ -7,7 +7,7 @@
     {% csrf_token %}
 
     {{form.as_p}}
-    <input type="submit" >
+    <input type="submit" value="download">
 
 </form>
 

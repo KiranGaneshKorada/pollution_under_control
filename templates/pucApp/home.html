@@ -1,6 +1,8 @@
 {% extends 'pucApp/base.html' %}
 
 
+{%block homeactive %} active {%endblock homeactive %}
+
 {% block body %}
 <div class="" >
   <div class="">
@@ -15,7 +17,7 @@
   </p>
   <div class="" >
     <div class="">
-      <a href="#"
+      <a href="{%url 'downloadPUC'%}"
         >Download now </a>
     </div>
   </div>
