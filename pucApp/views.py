@@ -18,7 +18,6 @@ def uploadPUC(request):
         puc_certificate=PUCCertificateForm(request.POST,request.FILES)
         if puc_certificate.is_valid():
             puc_certificate.save()
-            return HttpResponse("dddfdfdfd")
     return render(request,'pucApp/uploadPUC.html',{'form':form})
 
 
@@ -34,8 +33,14 @@ class downloadPUC(View):
             if PUCCertificate.objects.filter(registration_number=rno):
                 certificate=PUCCertificate.objects.get(registration_number=rno)
                 print(model_to_dict(certificate))
+                cert=certificate
+                kcert={'cert':cert}
+                for a in kcert:
+                    print(a)
+                    #print(a.date_uploaded)
                 response=HttpResponse(certificate.certificate,content_type='application/pdf')
                 #response['Content-Disposition']=f'attachment;filename="{certificate.certificate.name+certificate.registration_number}"'
                 return response
             
         return render(request,'pucApp/downloadPUC',{'form':DownloadPUCForm(),'errorMsg':'invalid credintials'})
+
