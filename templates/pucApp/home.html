@@ -1,47 +1,69 @@
 {% extends 'pucApp/base.html' %}
+ {% block homeactive %} active {% endblock homeactive %} 
+ {% block body %}
 
-
-{%block homeactive %} active {%endblock homeactive %}
-
-{% block body %}
-<div class="" >
-  <div class="">
-    <h3 >
-      Download PUC Certificate 
-    </h3>
-  </div>
-  <p
-  >
-    Want to download your PUC certificate. make sure to have registration
-    number and chassis number and click the link below
-  </p>
-  <div class="" >
-    <div class="">
-      <a href="{%url 'downloadPUC'%}"
-        >Download now </a>
+ <div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6 animate-fade-in">
+      <div class="card animate-slide-down">
+        <div class="card-header">
+          <h3 class="mb-0">PUC Certificate Reminder</h3>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Your Pollution Under Control (PUC) certificate expires every 6 months from the date of renewal or issue.
+            It's essential to ensure that your vehicle's PUC certificate is up to date to comply with the regulations
+            and contribute to a cleaner environment.
+          </p>
+          <p class="card-text pb-2">
+            Our PUC Reminder service will help you stay informed about the upcoming expiry of your PUC certificate.
+          </p>
+          <hr>
+          <p class="card-text justify-content-center">
+            <h3 class="text-center">Salient Features</h3>
+            <ul class="list-group">
+              <li class="list-group-item"> <i class="fas fa-check"></i> Download PUC Certificate  <i class="fas fa-download"></i></li>
+              <li class="list-group-item"> <i class="fas fa-check"></i> Upload PUC Certificate  <i class="fas fa-upload"></i></li>
+              <li class="list-group-item"> <i class="fas fa-check"></i> Renewal Reminder <i class="fas fa-bell"></i></li>
+            </ul>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="">
-  <h3 >
-    Want to upload renewed certificate 
-  </h3>
-  <p
-  >
-    Are you an RTO certified PUC center holder, want to upload recently
-    issued or renewed PUC certificate click here and login as RTO user
-  </p>
-  <div class="" >
-    <div class="">
-      <a href="#"
-        >Upload puc certificate
-        </a>
+<div class="d-flex flex-row py-2 px-2 pt-4 justify-content-center">
+  <div class="card py-1 px-1 my-2 mx-2  ">
+    <div class="card-body">
+      <h3 class="card-title">
+        <i class="fas fa-download"></i> Download PUC Certificate
+      </h3>
+      <p class="card-text">
+        Want to download your PUC certificate? Make sure to have your
+        registration number and chassis number and click the link below.
+      </p>
+      <div class="d-flex justify-content-center">
+        <a href="{% url 'downloadPUC' %}" class="btn btn-dark"
+          >Download Now</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="card py-1 px-2 my-2 mx-2 px-1">
+    <div class="card-body">
+      <h3 class="card-title">
+        <i class="fas fa-upload"></i>Want to Upload Renewed Certificate
+      </h3>
+      <p class="card-text">
+        Are you an RTO certified PUC center holder? Want to upload recently
+        issued or renewed PUC certificate? Click here and login as RTO user.
+      </p>
+      <div class="d-flex justify-content-center">
+        <a href="{% url 'uploadpuc' %}" class="btn btn-dark">Upload PUC Certificate</a>
+      </div>
     </div>
   </div>
 </div>
 {% endblock body %}
-
-    
-
-    

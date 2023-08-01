@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUC Certificate Reminder</title>
+  <!-- Add Bootstrap CSS link -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for animations */
+    .animate-fade-in {
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animate-slide-down {
+      animation: slideDown 1s;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Custom CSS for page styling */
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      margin-top: 40px;
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .card {
+      border: 1px solid #dee2e6;
+      border-radius: 0.25rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 animate-fade-in">
+        <div class="card animate-slide-down">
+          <div class="card-header">
+            <h3 class="mb-0">PUC Certificate Reminder</h3>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Your Pollution Under Control (PUC) certificate expires every 6 months from the date of renewal or issue.
+              It's essential to ensure that your vehicle's PUC certificate is up to date to comply with the regulations
+              and contribute to a cleaner environment.
+            </p>
+            <p class="card-text">
+              Our PUC Reminder service will help you stay informed about the upcoming expiry of your PUC certificate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Bootstrap JS and Popper.js scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

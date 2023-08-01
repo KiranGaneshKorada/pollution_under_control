@@ -44,7 +44,7 @@ class downloadPUC(View):
                 #response['Content-Disposition']=f'attachment;filename="{certificate.certificate.name+certificate.registration_number}"'
                 return response
             
-        return render(request,'pucApp/downloadPUC',{'form':DownloadPUCForm(),'errorMsg':'invalid credintials'})
+        return render(request,'pucApp/downloadPUC.html',{'form':DownloadPUCForm(),'errorMsg':'invalid credintials'})
 
 def remainder(request):
     data=PUCCertificate.objects.all()
@@ -55,5 +55,6 @@ def remainder(request):
         dif=diff.days
         if dif>=0:
             #smsapi.sendMessage(a.contact_number)
-            pywhatkit.sendwhatmsg('+919573385356','Kindly renew your Pollution under Control certificate',(datetime.datetime.now().hour),(datetime.datetime.now().minute)+1)
+            print('+91'+f'{a.contact_number}')
+            pywhatkit.sendwhatmsg('+91'+f'{a.contact_number}','Kindly renew your Pollution under Control certificate',(datetime.datetime.now().hour),(datetime.datetime.now().minute)+1)
     return render(request,'pucApp/home.html')

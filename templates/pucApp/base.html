@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="{% static 'assets/css/bootstrap.css'%}" rel="stylesheet" />
   </head>
   <body>
@@ -12,7 +13,7 @@
 
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand active" href="{% url 'home' %}">PUC</a>
+        <a class="navbar-brand active" href="{% url 'home' %}">PUC Reminder</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -50,7 +51,7 @@
     
           {% if user.is_authenticated %}
           <div class="d-flex">
-            <a href="/accounts/logout" class="btn btn-dark">Logout</a>
+            <a href="/accounts/logout" class="btn btn-dark me-2">Logout</a>
           </div>
           {% endif %}
         </div>
@@ -66,9 +67,9 @@
 
     {% comment %} footer start {% endcomment %}
 
-    <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom">
+    <footer class="footer mt-auto py-3 bg-light text-center ">
       <div class="container">
-        <span class="text-muted">© 2023 Your PUC REMAINDER. All rights reserved.</span>
+        <span class="text-muted">© 2023  PUC REMAINDER. All rights reserved.</span>
       </div>
     </footer>
     
