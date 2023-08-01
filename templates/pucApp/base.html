@@ -11,7 +11,7 @@
     {% comment %} header content start {% endcomment %}
 
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand active" href="{% url 'home' %}">PUC</a>
         <button
           class="navbar-toggler"
@@ -27,14 +27,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link {%block homeactive %} {%endblock homeactive%}" aria-current="page" href="{% url 'home' %}">Home</a>
+              <a class="nav-link {% block homeactive %} {% endblock homeactive %}" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {%block downloadactive %} {%endblock downloadactive%}" href="{%url 'downloadPUC'%}"> Download-PUC</a>
+              <a class="nav-link {% block downloadactive %} {% endblock downloadactive %}" href="{% url 'downloadPUC' %}">Download-PUC</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {%block uploadactive %}  {%endblock uploadactive %}
-              " aria-current="page" href="{%url 'uploadpuc'%}">Upload-PUC</a>
+              <a class="nav-link {% block uploadactive %} {% endblock uploadactive %}" aria-current="page" href="{% url 'uploadpuc' %}">Upload-PUC</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/admin">RTO Login</a>
@@ -43,16 +42,21 @@
               <a class="nav-link" aria-current="page" href="">Contact us</a>
             </li>
           </ul>
-          {%if user.is_superuser %}
-          <div class="d-flex"><a href="{%url 'remainder' %}" class="btn btn-dark">Remaind</a></div>
-          {%endif%}
-          
-          {%if user.is_authenticated%}
-          <div class="d-flex"><a href="/accounts/logout" class="btn btn-dark">logout</a></div>
-          {%endif%}
+          {% if user.is_superuser %}
+          <div class="d-flex">
+            <a href="{% url 'remainder' %}" class="btn btn-dark me-2">Remind</a>
+          </div>
+          {% endif %}
+    
+          {% if user.is_authenticated %}
+          <div class="d-flex">
+            <a href="/accounts/logout" class="btn btn-dark">Logout</a>
+          </div>
+          {% endif %}
         </div>
       </nav>
     </div>
+    
 
     {% comment %} header content end {% endcomment %}
 
@@ -62,11 +66,12 @@
 
     {% comment %} footer start {% endcomment %}
 
-    <div class="position-static bottom-0 start-50 bg-light">
-      <footer class="text-center">
-        Copyright &copy || All rights reserved
-      </footer>
-    </div>
+    <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom">
+      <div class="container">
+        <span class="text-muted">© 2023 Your PUC REMAINDER. All rights reserved.</span>
+      </div>
+    </footer>
+    
 
     {% comment %} footer end {% endcomment %}
 
