@@ -21,6 +21,6 @@ urlpatterns = [
     path('upload/', views.uploadPUC, name='uploadpuc'),
     path('download/', views.downloadPUC.as_view(),name='downloadPUC'),
     path('', views.home, name='home'),
-    #path('remainder/', views.remainder, name='remainder'),
+    path('remainder/', views.remainder, name='remainder'),
 
 ]

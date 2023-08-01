@@ -6,7 +6,7 @@ from . import models
 class PUCCertificateForm(forms.ModelForm):
     class Meta:
         model=models.PUCCertificate
-        fields='__all__'
+        fields=['registration_number','chasis_number','contact_number','certificate']
 
 
 class DownloadPUCForm(forms.Form):

@@ -43,9 +43,10 @@
               <a class="nav-link" aria-current="page" href="">Contact us</a>
             </li>
           </ul>
-          {% comment %} {%if user.is_superuser %}
+          {%if user.is_superuser %}
           <div class="d-flex"><a href="{%url 'remainder' %}" class="btn btn-dark">Remaind</a></div>
-          {%endif%} {% endcomment %}
+          {%endif%}
+          
           {%if user.is_authenticated%}
           <div class="d-flex"><a href="/accounts/logout" class="btn btn-dark">logout</a></div>
           {%endif%}

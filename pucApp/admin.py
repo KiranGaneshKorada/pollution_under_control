@@ -2,4 +2,6 @@ from django.contrib import admin
 from . import models
 
 # Register your models here.
-admin.site.register(models.PUCCertificate)
+class PucCertificateAdmin(admin.ModelAdmin):
+    readonly_fields=('date_uploaded',)
+admin.site.register(models.PUCCertificate,PucCertificateAdmin)
