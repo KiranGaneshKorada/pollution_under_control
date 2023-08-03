@@ -1,0 +1,52 @@
+{% extends 'pucApp/base.html' %}
+
+
+{%block contactactive %} active {%endblock contactactive %}
+
+
+{% block body %}
+<div class="row justify-content-center my-4">
+<div class="col-md-4 animate-fade-in">
+<div class="card ">
+    <div class="card-header">
+      <h3 class="mb-0 text-center">Contact Us</h3>
+    </div>
+    <div class=" d-flex card-body justify-content-center py-3">
+      
+        <form class="py-3"  method="post">
+
+            {% if form.errors%}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>we are unable to receive your feedback!</strong> Enter valid details !
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {%elif successMsg %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Thank you for your valuable feedback ! !</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {%endif%}
+
+            {% csrf_token %}
+            <p> {{form.name.label}}   <br>
+                {{form.name}}</p>
+
+                <p> {{form.email.label}} <br>
+                    {{form.email}}</p>
+            
+                <p>{{form.message.label}} <br>
+                    {{form.message}}</p>
+            
+           
+          <div class="d-flex justify-content-center">                <input class="btn btn-dark" type="submit" value="submit">
+          </div>
+          </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock body %}

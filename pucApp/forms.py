@@ -20,7 +20,7 @@ class PUCCertificateForm(forms.ModelForm):
         inputed_chasis_number=self.cleaned_data['chasis_number']
 
         if len(inputed_chasis_number)>5 or len(inputed_chasis_number)<5:
-                raise forms.ValidationError('should consists exactly 10 characters')
+                raise forms.ValidationError('should consists exactly 5 characters')
             
         return inputed_chasis_number
         

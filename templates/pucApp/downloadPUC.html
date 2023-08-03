@@ -23,7 +23,27 @@
 
                 {% csrf_token %}
             
-                {{form.as_p}}
+                <div class="  my-2"><p>
+                  
+                  
+                  {{form.registration_number.label}} <br>
+                  {{form.registration_number}}
+
+                  
+                    
+                    
+                  </p></div>
+                
+                
+                  <div class="  my-2"> <p>
+                    
+                  
+                  {{form.chasis_number.label}} <br>
+                  {{form.chasis_number}}
+                   
+                  
+                    
+                  </p></div>
                 <div class="d-flex justify-content-center"><input class='btn btn-dark 'type="submit" value="download"></div>
                 
             

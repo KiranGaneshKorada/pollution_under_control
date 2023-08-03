@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from . import smsapi
 import pywhatkit
+from django import forms
+from . import models
+
 
 
 # Create your views here.
@@ -17,12 +20,21 @@ def home(request):
 @login_required
 def uploadPUC(request):
     form=PUCCertificateForm()
+    print(form)
     if request.method=='POST':
-        puc_certificate=PUCCertificateForm(request.POST,request.FILES)
+        form=PUCCertificateForm(request.POST,request.FILES)
         #puc_certificate.cleaned_data['date_uploaded']=datetime.date.today
-        print(puc_certificate)
-        if puc_certificate.is_valid():
-            puc_certificate.save()
+
+        #print(form)
+        print('hii')
+        if form.is_valid():
+            form.save()
+            form=PUCCertificateForm()
+            return render(request,'pucApp/uploadPUC.html',{'form':form,'successMsg':'Successful'})
+        
+        return render(request,'pucApp/uploadPUC.html',{'form':form,'ErrorMsg':'Invalid'})
+
+    form=PUCCertificateForm()
     return render(request,'pucApp/uploadPUC.html',{'form':form})
 
 
@@ -58,3 +70,22 @@ def remainder(request):
             print('+91'+f'{a.contact_number}')
             pywhatkit.sendwhatmsg('+91'+f'{a.contact_number}','Kindly renew your Pollution under Control certificate',(datetime.datetime.now().hour),(datetime.datetime.now().minute)+1)
     return render(request,'pucApp/home.html')
+
+
+class Contact(View):
+
+    class ContactForm(forms.ModelForm):
+            class Meta:
+                model=models.ContactUs
+                fields='__all__'
+
+    def get(self,request):
+        form=self.ContactForm()
+        return render(request,'pucApp/contact.html',{'form':form})
+    
+    def post(self,request):
+        form=self.ContactForm(request.POST)
+        form.save()
+        form=self.ContactForm()
+        return render(request,'pucApp/contact.html',{'form':form,'successMsg':'Successful'})
+        
