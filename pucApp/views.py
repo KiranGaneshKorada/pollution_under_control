@@ -20,13 +20,16 @@ def home(request):
 @login_required
 def uploadPUC(request):
     form=PUCCertificateForm()
-    print(form)
     if request.method=='POST':
         form=PUCCertificateForm(request.POST,request.FILES)
+        rno=request.POST.get('registration_number')
+        if PUCCertificate.objects.filter(registration_number=rno):
+            certificate=PUCCertificate.objects.get(registration_number=rno)
+            form=PUCCertificateForm(instance=certificate)
+            form=PUCCertificateForm(request.POST,request.FILES,instance=certificate)
         #puc_certificate.cleaned_data['date_uploaded']=datetime.date.today
 
         #print(form)
-        print('hii')
         if form.is_valid():
             form.save()
             form=PUCCertificateForm()
