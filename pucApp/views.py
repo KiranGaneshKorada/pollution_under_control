@@ -68,7 +68,7 @@ def remainder(request):
         diff=datetime.date.today()-a.date_uploaded
         print(diff.days)
         dif=diff.days
-        if dif>=0:
+        if dif>=1:
             #smsapi.sendMessage(a.contact_number)
             print('+91'+f'{a.contact_number}')
             pywhatkit.sendwhatmsg('+91'+f'{a.contact_number}','Kindly renew your Pollution under Control certificate',(datetime.datetime.now().hour),(datetime.datetime.now().minute)+1)
