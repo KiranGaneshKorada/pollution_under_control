@@ -20,7 +20,11 @@ step 8: run command 'python manage.py createsuperuser' <br>
 step 9: you will be asked to enter username, email and password ( remember those, in future u will use them for login to admin dashboard and testing purposes wherever login form is rendered) <br>
 step 10: run command 'python manage.py runserver' <br>
 
-# Project has been fired up on local host u are ready to use!!!!
+
+NOTE : even it is old tested project as you created new database there wont be any existing data so frst upload some sample files using superuser login credentials and explore other features. if you have any queries feel free to contact me. <br>
+
+# Project has been fired up on local host and you are ready to use!!!!
+
 
 
 
