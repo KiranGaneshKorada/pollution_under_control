@@ -9,7 +9,7 @@ class PUCCertificate(models.Model):
     chasis_number=models.CharField(max_length=5)
     contact_number=models.CharField(max_length=10,validators=[MinLengthValidator(10,'enter a valid contact number')])
     date_uploaded=models.DateField(auto_now=True,null=True)
-    certificate=models.FileField(upload_to='static/certificates')
+    certificate=models.FileField(upload_to='static/certificates',unique=True)
 
 
 class ContactUs(models.Model):
