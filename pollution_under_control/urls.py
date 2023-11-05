@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.site.site_header='PUC ADMIN PANNEL'
 admin.site.site_title='PUC ADMIN LOGIN'
@@ -27,3 +28,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls'))
 
 ]
+
+urlpatterns+=staticfiles_urlpatterns()
